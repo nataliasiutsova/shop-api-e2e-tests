@@ -1,0 +1,25 @@
+# Allure
+allure-results/
+allure-results-local/
+allure-results-ci/
+allure-report/
+allure-report-local/
+allure-report-ci/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Environment
+.env
+.env.local
+*.env
+
+# IDE
+.idea/
+.vscode/
