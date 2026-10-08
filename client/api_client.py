@@ -1,18 +1,24 @@
 import json
 import logging
+import os
 
 import allure
 import requests
-
 from utils.logging_utils import mask, truncate
 
 logger = logging.getLogger("api")
 
 
 class RequestClient:
-    BASE_URL = "https://aqa-proka4.org/sandbox/api"
 
     def __init__(self, token: str | None = None, timeout: float = 30.0):
+        base_url = os.getenv("BASE_URL")
+        if not base_url:
+            raise RuntimeError(
+                "BASE_URL is not set. "
+                "Add it to .env or export as an environment variable."
+            )
+        self.base_url = base_url.rstrip("/")
         self.session = requests.Session()
         self.timeout = timeout
         if token:
@@ -31,7 +37,7 @@ class RequestClient:
         return self._request("DELETE", path, allow_error=allow_error, **kw)
 
     def _request(self, method, path, *, allow_error=False, **kw):
-        url = f"{self.BASE_URL}/{path.lstrip('/')}"
+        url = f"{self.base_url}/{path.lstrip('/')}"
 
         response = self.session.request(method, url, timeout=self.timeout, **kw)
 

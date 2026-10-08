@@ -2,9 +2,13 @@ import json
 import os
 import platform
 
-import pytest
 from dotenv import load_dotenv
+
+load_dotenv()
+
+import pytest
 from faker import Faker
+import shutil
 
 from client.api_client import RequestClient
 from services.cart_service import CartService
@@ -13,10 +17,7 @@ from services.order_service import OrderService
 from services.product_service import ProductService
 from utils.data_generator import make_product_payload
 
-load_dotenv()
 fake = Faker()
-
-import shutil
 
 
 @pytest.fixture(scope="session", autouse=True)
