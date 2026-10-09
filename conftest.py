@@ -1,6 +1,5 @@
 import json
 import os
-import platform
 
 from dotenv import load_dotenv
 
@@ -21,11 +20,25 @@ fake = Faker()
 
 
 @pytest.fixture(scope="session", autouse=True)
-def setup_allure_metadata():
-    results_dir = os.getenv("ALLURE_DIR", "allure-results-local")
-    os.makedirs(results_dir, exist_ok=True)
+def setup_allure_metadata(request):
+    """Populates allure-results with metadata (executor, environment, categories)."""
 
-    # Executor
+    # 1. Determine the results directory
+    results_dir = request.config.getoption("--alluredir", default=None)
+    if not results_dir:
+        results_dir = os.getenv("ALLURE_DIR", "allure-results")
+
+    # 2. Try to create it, but don't crash on failure
+    try:
+        os.makedirs(results_dir, exist_ok=True)
+    except (PermissionError, OSError):
+        return
+
+    # 3. Check write access
+    if not os.access(results_dir, os.W_OK):
+        return
+
+    # ---------- Executor ----------
     if os.getenv("GITHUB_ACTIONS") == "true":
         executor = {
             "name": "GitHub Actions",
@@ -38,6 +51,14 @@ def setup_allure_metadata():
             ),
             "reportName": "GitHub Actions Report",
         }
+    elif os.path.exists("/.dockerenv"):
+        executor = {
+            "name": "Docker",
+            "type": "docker",
+            "buildName": "docker-local",
+            "buildUrl": "http://localhost",
+            "reportName": "Docker Report",
+        }
     else:
         executor = {
             "name": "Local",
@@ -47,58 +68,56 @@ def setup_allure_metadata():
             "reportName": "Local Report",
         }
 
-    with open(os.path.join(results_dir, "executor.json"), "w", encoding="utf-8") as f:
-        json.dump(executor, f, indent=2, ensure_ascii=False)
+    try:
+        with open(os.path.join(results_dir, "executor.json"), "w", encoding="utf-8") as f:
+            f.write(json.dumps(executor, indent=2, ensure_ascii=False))
+    except OSError:
+        pass
 
-    # Environment
+    # ---------- Environment ----------
     environment = {
-        "Base.URL": "https://aqa-proka4.org/sandbox",
-        "Environment": "Sandbox" if os.getenv("GITHUB_ACTIONS") != "true" else "CI",
+        "Base.URL": os.getenv("BASE_URL", "https://aqa-proka4.org/sandbox/api"),
+        "Environment": "CI" if os.getenv("GITHUB_ACTIONS") == "true"
+        else "Docker" if os.path.exists("/.dockerenv")
+        else "Local",
         "Executor": executor["name"],
-        "PythonVersion": f"{platform.python_version()}",
-        "OS": f"{platform.system()}"
+        "Python.Version": os.sys.version.split()[0],
     }
 
-    with open(os.path.join(results_dir, "environment.properties"), "w", encoding="utf-8") as f:
-        for key, value in environment.items():
-            f.write(f"{key}={value}\n")
+    try:
+        with open(os.path.join(results_dir, "environment.properties"), "w", encoding="utf-8") as f:
+            for k, v in environment.items():
+                f.write(f"{k}={v}\n")
+    except OSError:
+        pass
 
-    # Categories
+    # ---------- Categories ----------
     categories = [
-        {
-            "name": "Product defects",
-            "matchedStatuses": ["failed"],
-        },
-        {
-            "name": "Test defects",
-            "matchedStatuses": ["broken"],
-        },
+        {"name": "Product defects", "matchedStatuses": ["failed"]},
+        {"name": "Test defects", "matchedStatuses": ["broken"]},
         {
             "name": "Infrastructure problems",
             "messageRegex": ".*Timeout.*|.*Connection.*|.*HTTP 5\\d\\d.*",
             "matchedStatuses": ["broken", "failed"],
         },
-        {
-            "name": "Auth issues",
-            "messageRegex": ".*401.*|.*Unauthorized.*|.*Token.*expired.*",
-            "matchedStatuses": ["broken", "failed"]
-        }
     ]
 
-    with open(os.path.join(results_dir, "categories.json"), "w", encoding="utf-8") as f:
-        json.dump(categories, f, indent=2, ensure_ascii=False)
+    try:
+        with open(os.path.join(results_dir, "categories.json"), "w", encoding="utf-8") as f:
+            f.write(json.dumps(categories, indent=2, ensure_ascii=False))
+    except OSError:
+        pass
 
-    #  Trend (history)
-    history_source = os.getenv("ALLURE_HISTORY_DIR", "allure-report-local/history")
-    history_target = os.path.join(results_dir, "history")
-
-    if os.path.exists(history_source):
-        if os.path.exists(history_target):
-            shutil.rmtree(history_target)
-        shutil.copytree(history_source, history_target)
-        print(f"✔ History copied from {history_source} to {history_target}")
-    else:
-        print(f"✖ No history found at {history_source} — Trend will be empty")
+    # ---------- History (Trend) ----------
+    history_source = os.getenv("ALLURE_HISTORY_DIR")
+    if history_source and os.path.exists(history_source):
+        history_target = os.path.join(results_dir, "history")
+        try:
+            if os.path.exists(history_target):
+                shutil.rmtree(history_target)
+            shutil.copytree(history_source, history_target)
+        except OSError:
+            pass
 
 
 @pytest.fixture(scope="session")

@@ -115,8 +115,7 @@ def test_get_product_by_id_returns_correct_data(product_service, created_product
 @pytest.mark.known_bug
 @pytest.mark.regression
 @allure.title("GET /products/{id} — new product defaults rating=0, reviews=0")
-@allure.description("Verifies that a newly created product has default values: rating=0 and reviews_count=0."
-                    "Skipped if API does not return these fields (known bug BACKEND).")
+@allure.description("Verifies that a newly created product has default values: rating=0 and reviews_count=0.")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_get_new_product_default_rating_zero(product_service, created_product):
     product_id = created_product["id"]
@@ -124,24 +123,23 @@ def test_get_new_product_default_rating_zero(product_service, created_product):
         response = product_service.get_product_by_id(product_id)
         product = response.json()
 
-    with allure.step("Check if API returns required fields"):
-        missing = {"rating", "reviews_count"} - set(product.keys())
-        if missing:
-            allure.attach(
-                str(sorted(product.keys())),
-                name="Actual response keys",
-                attachment_type=allure.attachment_type.TEXT,
-            )
-            pytest.skip(
-                f"API does not return: {sorted(missing)}. "
-                f"Actual keys: {sorted(product.keys())}. "
-                f"Known bug BACKEND."
-            )
+    with allure.step("Verify API returns 'rating' field"):
+        assert "rating" in product, (
+            f"API does not return 'rating'. "
+            f"Actual keys: {list(product.keys())}. Known bug BACKEND."
+        )
 
-    with allure.step(f"Verify rating is 0 (got {product["rating"]})"):
-        assert product["rating"] == 0, f"Expected rating=0, got {product["rating"]}"
-    with allure.step(f"Verify reviews_count is 0 (got {product["reviews_count"]})"):
-        assert product["reviews_count"] == 0, f"Expected 0, got {product["reviews_count"]}"
+    with allure.step(f"Verify rating is 0 (got {product['rating']})"):
+        assert product["rating"] == 0
+
+    with allure.step("Verify API returns 'reviews_count' field"):
+        assert "reviews_count" in product, (
+            f"API does not return 'reviews_count'. "
+            f"Actual keys: {list(product.keys())}. Known bug BACKEND."
+        )
+
+    with allure.step(f"Verify reviews_count is 0 (got {product['reviews_count']})"):
+        assert product["reviews_count"] == 0
 
 
 @pytest.mark.regression
@@ -174,7 +172,6 @@ def test_get_product_with_invalid_id_format(product_service, invalid_id):
     allure.dynamic.title(f"GET /products/{invalid_id!r} — rejects invalid ID")
     with allure.step(f"Send GET /products/{invalid_id!r}"):
         response = product_service.get_product_by_id(invalid_id, allow_error=True)
-
     with allure.step(f"Verify status code is 4xx (got {response.status_code})"):
         assert response.status_code in (
             400, 404, 422), f"Expected 4xx for id='{invalid_id}', got {response.status_code}. "

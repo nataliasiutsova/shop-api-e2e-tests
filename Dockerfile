@@ -1,13 +1,30 @@
-FROM python:3.12.0a4-alpine3.17
+# syntax=docker/dockerfile:1
 
-# Установка Allure
-RUN apk update && \
-    apk add openjdk11-jre curl tar && \
-    curl -o allure-2.13.8.tgz -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.8/allure-commandline-2.13.8.tgz && \
-    tar -zxvf allure-2.13.8.tgz -C /opt/ && \
-    ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure && \
-    rm allure-2.13.8.tgz
+FROM python:3.12-slim
 
-WORKDIR /usr/workspace
-COPY ./ui/requirements.txt /usr/workspace
-RUN pip3 install -r requirements.txt
+# ---------- Environment ----------
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONPATH=/app
+
+# ---------- Workdir ----------
+WORKDIR /app
+
+# ---------- Python dependencies ----------
+# Copy requirements first for better layer caching
+COPY requirements.txt .
+
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
+
+
+# ---------- Project files ----------
+COPY . .
+
+# ---------- Default command ----------
+# Run regression tests with Allure results.
+# Override at `docker run` if needed:
+#   docker run ... pytest -m smoke
+CMD ["pytest", "-m", "regression", "--alluredir=allure-results", "-v"]

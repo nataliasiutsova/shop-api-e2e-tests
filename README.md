@@ -2,15 +2,16 @@
 
 Layered API test framework for the **Shop API** (products, cart, orders) built with **Pytest**, **Pydantic v2**, and
 **Allure**.
-107 tests covering REST API, schema validation, and end-to-end business flows.
+135 tests covering REST API, schema validation, and end-to-end business flows.
 
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![pytest](https://img.shields.io/badge/pytest-8.0-green)
 ![Pydantic](https://img.shields.io/badge/pydantic-v2-red)
 ![Allure](https://img.shields.io/badge/report-allure-orange)
+![Docker](https://img.shields.io/badge/docker-ready-blue)
 
-> ⚠️ **Work in progress** — Docker and CI/CD are coming soon.
-
+> ⚠️ **Note:** The sandbox API (`aqa-proka4.org`) enforces a **rate limit of 20 requests per 60 seconds**. The full
+> regression suite (135 tests, ~600+ API calls) will **exceed** this limit and return `429 Too Many Requests`.
 ---
 
 ## Architecture
@@ -71,10 +72,14 @@ Layered API test framework for the **Shop API** (products, cart, orders) built w
 │   └── e2e/                   # End-to-end flows (9)
 ├── utils/
 │   ├── data_generator.py      # Fake data helpers
+│   ├── environment.py         # Docker/CI detection
 │   └── logging_utils.py       # Log masking and truncation
 ├── conftest.py                # Shared fixtures (DI)
 ├── pytest.ini                 # Markers and configuration
 ├── requirements.txt
+├── Dockerfile
+├── .dockerignore
+├── run_docker.sh              # Docker runner with Allure report
 └── README.md
 ```
 
@@ -128,20 +133,23 @@ brew install allure            # macOS
 
 ## Running Tests
 
+### Option A — locally (requires Python + Allure CLI)
+
 ```bash
 # All tests
 pytest
 
-# Smoke tests
+# Smoke tests (fast)
 pytest -m smoke
 
+⚠️**See the note about rate limit at the top of the document**
 # Regression tests
 pytest -m regression
 
 # E2E tests only
 pytest -m e2e
 
-# Known bug tests only
+# Known bugs only
 pytest -m known_bug
 
 # A specific file
@@ -156,6 +164,42 @@ pytest -x
 # Re-run only failed tests
 pytest --lf
 ```
+
+### Option B — in Docker (recommended)
+
+**Requirements:** Docker CLI + any container runtime (Docker Desktop, Colima, or OrbStack).
+
+```bash
+# Build the image (once)
+docker build -t shop-api-tests:latest .
+
+# 2. Make the runner executable (once)
+chmod +x run_docker.sh
+
+# 3. Run smoke tests (with Allure report)
+./run_docker.sh
+
+# 4. Run other markers explicitly (with Allure report)
+./run_docker.sh e2e
+./run_docker.sh known_bug
+
+#  5. Run tests in specific folder
+./run_docker.sh cart tests/cart
+./run_docker.sh products tests/products
+./run_docker.sh orders tests/orders
+
+# 6. Run tests in specific file
+./run_docker.sh add-item tests/cart/test_add_item.py
+
+```
+
+**What `run_docker.sh` does:**
+
+1. Checks prerequisites (Docker, Allure, `.env`).
+2. Builds the image if not present.
+3. Runs the specified marker in a container.
+4. Restores Allure `history` from the previous run (for Trend).
+5. Generates and opens the Allure report.
 
 ### Test Markers
 
@@ -172,11 +216,11 @@ pytest --lf
 
 | Service      | Tests   | Scope                                                                           |
 |:-------------|:--------|:--------------------------------------------------------------------------------|
-| **Products** | 39      | CRUD, filtering, pagination, negative cases                                     |
-| **Cart**     | 37      | Add / get / update / delete items, clear cart, stock boundaries, negative cases |
+| **Products** | 61      | CRUD, filtering, pagination, negative cases                                     |
+| **Cart**     | 47      | Add / get / update / delete items, clear cart, stock boundaries, negative cases |
 | **Orders**   | 22      | Create from cart / get all / get by id / cancel, negative cases                 |
 | **E2E**      | 9       | Full checkout flow, snapshot, cancellation, multi-item orders                   |
-| **Total**    | **107** |                                                                                 |
+| **Total**    | **135** |                                                                                 |
 
 ### Common Coverage (all services)
 
@@ -216,15 +260,35 @@ def test_add_item_success(empty_cart, created_product):
 
 ## Allure Reports
 
+### Locally
+
 ```bash
 # Run tests with Allure results
-pytest -m regression --alluredir=allure-results-local
+pytest -m smoke --alluredir=allure-results-local
 
 # Generate report
 allure generate allure-results-local -o allure-report-local --clean
 
 # Open in browser
 allure open allure-report-local
+```
+
+### In Docker (recommended)
+
+`run_docker.sh` **generates the report automatically** — no extra commands needed.
+
+```bash
+# Smoke (default)
+./run_docker.sh
+
+# E2E
+./run_docker.sh e2e
+
+# Specific folder
+./run_docker.sh cart tests/cart
+
+# Specific file
+./run_docker.sh add-item tests/cart/test_add_item.py
 ```
 
 ### Report features
@@ -263,13 +327,13 @@ parallelized, but the gain (~15 seconds) does not justify the added complexity a
 
 ## Roadmap
 
-- [x] API tests for products (39)
-- [x] API tests for cart (37)
+- [x] API tests for products (61)
+- [x] API tests for cart (43)
 - [x] API tests for orders (22)
 - [x] E2E checkout flow tests (9)
 - [x] Pydantic schema validation
 - [x] Allure integration (steps, severity, features)
-- [ ] Docker support (one-command test run)
+- [x] Docker support (one-command test run)
 - [ ] GitHub Actions CI
 - [ ] CI badge in README
 

@@ -1,0 +1,42 @@
+# ---------- Python ----------
+__pycache__/
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# ---------- Allure ----------
+allure-*/
+
+# ---------- Environment & secrets ----------
+.env
+.env.*
+!.env.example
+
+# ---------- Git ----------
+.git/
+.gitignore
+
+# ---------- IDE ----------
+.idea/
+.vscode/
+*.swp
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+
+# ---------- Docker ----------
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# ---------- Docs ----------
+*.md
+
+# ---------- Scripts ----------
+*.sh

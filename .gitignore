@@ -1,10 +1,5 @@
 # Allure
-allure-results/
-allure-results-local/
-allure-results-ci/
-allure-report/
-allure-report-local/
-allure-report-ci/
+allure-*/
 
 # Python
 __pycache__/
