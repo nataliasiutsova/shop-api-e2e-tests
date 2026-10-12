@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-PM",
+  "description": "Participant war wide clear newspaper key line.",
+  "category": "Category-prove",
+  "price": 906.57,
+  "stock": 42,
+  "image_url": "https://via.placeholder.com/300"
+}

@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-management",
+  "description": "Near people leave age stock vote music.",
+  "category": "Category-fight",
+  "price": 946.99,
+  "stock": 97,
+  "image_url": "https://via.placeholder.com/300"
+}

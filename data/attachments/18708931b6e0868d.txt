@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-career",
+  "description": "Condition staff whatever often want when seek.",
+  "category": "Category-have",
+  "price": 436.33,
+  "stock": 73,
+  "image_url": "https://via.placeholder.com/300"
+}

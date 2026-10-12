@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-huge",
+  "description": "Mission card perform however well challenge resource note.",
+  "category": "Category-under",
+  "price": 886.06,
+  "stock": 62,
+  "image_url": "https://via.placeholder.com/300"
+}

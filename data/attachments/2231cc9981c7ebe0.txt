@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-glass",
+  "description": "Too push agency officer.",
+  "category": "Category-yard",
+  "price": 398.38,
+  "stock": 32,
+  "image_url": "https://via.placeholder.com/300"
+}

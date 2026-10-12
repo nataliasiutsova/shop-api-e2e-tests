@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-12T10:37:08.729246Z",
+  "id": 25,
+  "items": [
+    {
+      "created_at": "2026-10-12T10:37:08.347496Z",
+      "id": 1,
+      "price": 710.47,
+      "product_id": 6,
+      "product_name": "Product-decision",
+      "quantity": 2,
+      "total": 1420.94
+    }
+  ],
+  "status": "pending",
+  "total": 1420.94
+}
