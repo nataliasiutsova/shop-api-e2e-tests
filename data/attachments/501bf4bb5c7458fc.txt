@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-hospital",
+  "description": "Easy game success likely heavy maintain.",
+  "category": "Category-Mrs",
+  "price": 338.63,
+  "stock": 44,
+  "image_url": "https://via.placeholder.com/300"
+}

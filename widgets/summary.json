@@ -1,1 +1,1 @@
-{"reportName":"GitHub Actions Report","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":11,"unknown":0,"total":11},"time":{"start":1791802527349,"stop":1791802538387,"duration":11038,"minDuration":162,"maxDuration":841,"sumDuration":4056}}
+{"reportName":"GitHub Actions Report","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":11,"unknown":0,"total":11},"time":{"start":1791802597541,"stop":1791802608172,"duration":10631,"minDuration":136,"maxDuration":852,"sumDuration":3974}}

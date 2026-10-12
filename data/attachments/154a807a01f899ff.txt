@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-individual",
+  "description": "Audience outside behind his group.",
+  "category": "Category-crime",
+  "price": 922.98,
+  "stock": 99,
+  "image_url": "https://via.placeholder.com/300"
+}

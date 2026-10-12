@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-12T10:56:42.679501Z",
+  "id": 32,
+  "items": [
+    {
+      "created_at": "2026-10-12T10:56:42.454185Z",
+      "id": 1,
+      "price": 68.03,
+      "product_id": 6,
+      "product_name": "Product-town",
+      "quantity": 2,
+      "total": 136.06
+    }
+  ],
+  "status": "pending",
+  "total": 136.06
+}

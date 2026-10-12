@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-method",
+  "description": "Season control responsibility whole.",
+  "category": "Category-exactly",
+  "price": 489.18,
+  "stock": 36,
+  "image_url": "https://via.placeholder.com/300"
+}

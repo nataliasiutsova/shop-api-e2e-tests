@@ -1,0 +1,18 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-Mrs'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (174 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:56:45.522808Z', 'id': 5, 'name': 'Category-Mrs'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-hospital', 'description': 'Easy game success likely heavy maintain.', 'category': 'Category-Mrs', 'price': 338.63, 'stock': 44, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (187 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-Mrs', 'created_at': '2026-10-12T10:56:45.710862Z', 'description': 'Easy game success likely heavy maintain.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-hospital', 'price': 338.63, 'stock': 44}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (175 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-Mrs'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-Mrs (144 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (176 ms)
+INFO     api:api_client.py:113    response body: <empty>

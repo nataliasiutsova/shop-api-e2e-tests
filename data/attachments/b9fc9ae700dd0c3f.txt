@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-man",
+  "description": "To similar get majority worker fear cost.",
+  "category": "Category-court",
+  "price": 581.79,
+  "stock": 52,
+  "image_url": "https://via.placeholder.com/300"
+}

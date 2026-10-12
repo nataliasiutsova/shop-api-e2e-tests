@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-town",
+  "description": "Report describe along author.",
+  "category": "Category-mission",
+  "price": 68.03,
+  "stock": 12,
+  "image_url": "https://via.placeholder.com/300"
+}
