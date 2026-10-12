@@ -144,7 +144,6 @@ pytest -m smoke
 ⚠️See the note about rate limit at the top of the document.
 # Regression tests
 pytest -m regression
-
 # E2E tests only
 pytest -m e2e
 

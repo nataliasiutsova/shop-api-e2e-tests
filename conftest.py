@@ -122,7 +122,7 @@ def setup_allure_metadata(request):
 
 @pytest.fixture(scope="session")
 def auth_client() -> RequestClient:
-    token = os.getenv("SANDBOX_TOKEN")
+    token = os.getenv("API_TOKEN")
     return RequestClient(token=token)
 
 
