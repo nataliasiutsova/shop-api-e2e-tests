@@ -6,38 +6,67 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      marker:
+        description: 'Test marker to run'
+        required: true
+        default: 'smoke'
+        type: choice
+        options:
+          - smoke
+          - regression
+          - e2e
+          - known_bug
 
 permissions:
   contents: write
   pages: write
 
 jobs:
-  smoke:
+  tests:
     runs-on: ubuntu-latest
 
     steps:
+      # ---------- Checkout ----------
       - name: Checkout
         uses: actions/checkout@v4
 
+      # ---------- Python ----------
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
 
+      # ---------- Dependencies ----------
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install allure-pytest
 
-      - name: Run smoke tests
+      # ---------- Restore Allure history (per marker) ----------
+      - name: Restore Allure history
+        uses: actions/cache/restore@v4
+        with:
+          path: allure-results/history
+          key: allure-history-${{ github.ref_name }}-${{ inputs.marker || 'smoke' }}-${{ github.run_id }}
+          restore-keys: |
+            allure-history-${{ github.ref_name }}-${{ inputs.marker || 'smoke' }}-
+            allure-history-${{ github.ref_name }}-
+            allure-history-
+
+      # ---------- Run tests ----------
+      - name: Run tests
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
+          MARKER: ${{ inputs.marker || 'smoke' }}
         run: |
-          pytest -m smoke --alluredir=allure-results
+          echo "▶ Marker: $MARKER"
+          pytest -m "$MARKER" --alluredir=allure-results
 
+      # ---------- Install Allure CLI ----------
       - name: Install Allure CLI
         if: always()
         run: |
@@ -46,30 +75,41 @@ jobs:
           sudo mv allure-2.27.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
 
-      - name: Restore Allure history
-        if: always()
-        uses: actions/cache@v4
-        with:
-          path: allure-report/history
-          key: allure-history-${{ github.run_id }}
-          restore-keys: |
-            allure-history-
-
+      # ---------- Generate Allure report ----------
       - name: Generate Allure report
         if: always()
         run: |
           allure generate allure-results -o allure-report --clean
 
+      # ---------- Save Allure history (per marker) ----------
+      - name: Save Allure history
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: allure-report/history
+          key: allure-history-${{ github.ref_name }}-${{ inputs.marker || 'smoke' }}-${{ github.run_id }}
+
+      # ---------- Upload Allure report ----------
       - name: Upload Allure report (artifact)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report
+          name: allure-report-${{ inputs.marker || 'smoke' }}
           path: allure-report
           retention-days: 30
 
+      # ---------- Upload raw Allure results ----------
+      - name: Upload Allure results (raw)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ inputs.marker || 'smoke' }}
+          path: allure-results
+          retention-days: 7
+
+      # ---------- Deploy to GitHub Pages ----------
       - name: Deploy to GitHub Pages
-        if: always() && github.ref == 'refs/heads/main'
+        if: always() && github.ref == 'refs/heads/main' && (inputs.marker || 'smoke') == 'smoke'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
