@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-break",
+  "description": "Huge really cultural pass couple account future.",
+  "category": "Category-analysis",
+  "price": 741.82,
+  "stock": 55,
+  "image_url": "https://via.placeholder.com/300"
+}

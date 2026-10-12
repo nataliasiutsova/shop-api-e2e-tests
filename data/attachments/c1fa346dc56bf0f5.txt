@@ -1,0 +1,34 @@
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (180 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-analysis'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (205 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T12:43:58.750834Z', 'id': 5, 'name': 'Category-analysis'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-break', 'description': 'Huge really cultural pass couple account future.', 'category': 'Category-analysis', 'price': 741.82, 'stock': 55, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (204 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-analysis', 'created_at': '2026-10-12T12:43:58.959133Z', 'description': 'Huge really cultural pass couple account future.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-break', 'price': 741.82, 'stock': 55}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/cart/items
+INFO     api:api_client.py:73    body (json): {'product_id': 6, 'quantity': 2}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/cart/items (280 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T12:43:59.232451Z', 'id': 1, 'price': 741.82, 'product_id': 6, 'product_name': 'Product-break', 'quantity': 2, 'total': 1483.64}
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/cart (183 ms)
+INFO     api:api_client.py:124    response body: {'count': 1, 'items': [{'created_at': '2026-10-12T12:43:59.232451Z', 'id': 1, 'price': 741.82, 'product_id': 6, 'product_name': 'Product-break', 'quantity': 2, 'total': 1483.64}], 'total': 1483.64}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/orders
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/orders (271 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T12:43:59.664801Z', 'id': 37, 'items': [{'created_at': '2026-10-12T12:43:59.232451Z', 'id': 1, 'price': 741.82, 'product_id': 6, 'product_name': 'Product-break', 'quantity': 2, 'total': 1483.64}], 'status': 'pending', 'total': 1483.64}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (213 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-analysis'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-analysis (205 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (231 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (241 ms)
+INFO     api:api_client.py:113    response body: <empty>

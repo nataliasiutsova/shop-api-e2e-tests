@@ -1,1 +1,1 @@
-{"reportName":"GitHub Actions Report","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":11,"unknown":0,"total":11},"time":{"start":1791805127643,"stop":1791805139305,"duration":11662,"minDuration":170,"maxDuration":936,"sumDuration":4335}}
+{"reportName":"Docker Report","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":11,"unknown":0,"total":11},"time":{"start":1791809036825,"stop":1791809049042,"duration":12217,"minDuration":186,"maxDuration":949,"sumDuration":4575}}

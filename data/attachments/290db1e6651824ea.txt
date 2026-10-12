@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-beyond",
+  "description": "Billion raise at within.",
+  "category": "Category-develop",
+  "price": 161.77,
+  "stock": 14,
+  "image_url": "https://via.placeholder.com/300"
+}

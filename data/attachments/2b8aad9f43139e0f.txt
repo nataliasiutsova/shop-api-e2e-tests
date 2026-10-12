@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-available",
+  "description": "Necessary television stage forget affect third wind.",
+  "category": "Category-source",
+  "price": 603.67,
+  "stock": 63,
+  "image_url": "https://via.placeholder.com/300"
+}

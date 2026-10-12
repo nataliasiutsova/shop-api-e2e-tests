@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-and",
+  "description": "Charge detail check force home night hot.",
+  "category": "Category-news",
+  "price": 629.84,
+  "stock": 86,
+  "image_url": "https://via.placeholder.com/300"
+}

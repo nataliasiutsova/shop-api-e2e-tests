@@ -1,1 +1,1 @@
-[{"name":"GitHub Actions","type":"github","buildName":"CI #13","buildUrl":"https://github.com/nataliasiutsova/shop-api-e2e-tests/actions/runs/38243952467","reportName":"GitHub Actions Report"}]
+[{"name":"Docker","type":"docker","buildName":"docker-local","buildUrl":"http://localhost","reportName":"Docker Report"}]

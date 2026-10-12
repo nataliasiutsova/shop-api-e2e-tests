@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-12T12:44:04.959637Z",
+  "id": 39,
+  "items": [
+    {
+      "created_at": "2026-10-12T12:44:04.711822Z",
+      "id": 1,
+      "price": 161.77,
+      "product_id": 6,
+      "product_name": "Product-beyond",
+      "quantity": 2,
+      "total": 323.54
+    }
+  ],
+  "status": "pending",
+  "total": 323.54
+}

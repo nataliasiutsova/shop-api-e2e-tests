@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-although",
+  "description": "Magazine wish least treatment.",
+  "category": "Category-moment",
+  "price": 427.69,
+  "stock": 84,
+  "image_url": "https://via.placeholder.com/300"
+}

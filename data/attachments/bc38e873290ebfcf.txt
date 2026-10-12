@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-offer",
+  "description": "Most stuff yourself everyone upon radio.",
+  "category": "Category-personal",
+  "price": 728.17,
+  "stock": 74,
+  "image_url": "https://via.placeholder.com/300"
+}
