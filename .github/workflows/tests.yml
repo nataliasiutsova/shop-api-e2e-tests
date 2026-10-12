@@ -29,21 +29,37 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ---------- Python ----------
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      # ---------- Set up Docker Buildx ----------
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # ---------- Cache Docker layers ----------
+      - name: Cache Docker layers
+        uses: actions/cache@v4
         with:
-          python-version: '3.12'
-          cache: 'pip'
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ hashFiles('requirements.txt', 'Dockerfile') }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
 
-      # ---------- Dependencies ----------
-      - name: Install dependencies
+      # ---------- Build Docker image ----------
+      - name: Build Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          load: true
+          tags: shop-api-tests:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+
+      # ---------- Move cache ----------
+      - name: Move cache
         run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install allure-pytest
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
-      # ---------- Cache Allure history (restore at start, save at end) ----------
+      # ---------- Cache Allure history ----------
       - name: Cache Allure history
         uses: actions/cache@v4
         with:
@@ -54,15 +70,23 @@ jobs:
             allure-history-${{ github.ref_name }}-
             allure-history-
 
-      # ---------- Run tests ----------
-      - name: Run tests
+      # ---------- Run tests in Docker ----------
+      - name: Run tests in Docker
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
           MARKER: ${{ inputs.marker || 'smoke' }}
         run: |
           echo "▶ Marker: $MARKER"
-          pytest -m "$MARKER" --alluredir=allure-results
+          mkdir -p allure-results
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -e BASE_URL="$BASE_URL" \
+            -e API_TOKEN="$API_TOKEN" \
+            -e ALLURE_DIR=allure-results \
+            -v "$(pwd)/allure-results:/app/allure-results" \
+            shop-api-tests:latest \
+            pytest -m "$MARKER" --alluredir=allure-results
 
       # ---------- Install Allure CLI ----------
       - name: Install Allure CLI
@@ -79,14 +103,14 @@ jobs:
         run: |
           allure generate allure-results -o allure-report --clean
 
-      # ---------- Copy new history back for next run ----------
+      # ---------- Copy history back ----------
       - name: Copy history back for next run
         if: always()
         run: |
           mkdir -p allure-results/history
           cp -r allure-report/history/* allure-results/history/ || true
 
-      # ---------- Upload Allure report (artifact) ----------
+      # ---------- Upload Allure report ----------
       - name: Upload Allure report (artifact)
         if: always()
         uses: actions/upload-artifact@v4
