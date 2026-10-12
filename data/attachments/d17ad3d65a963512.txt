@@ -1,0 +1,37 @@
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (216 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-seek'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (257 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:32:07.522094Z', 'id': 5, 'name': 'Category-seek'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-behavior', 'description': 'Natural just society join property.', 'category': 'Category-seek', 'price': 489.03, 'stock': 35, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (236 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-seek', 'created_at': '2026-10-12T10:32:07.779696Z', 'description': 'Natural just society join property.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-behavior', 'price': 489.03, 'stock': 35}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/cart/items
+INFO     api:api_client.py:73    body (json): {'product_id': 6, 'quantity': 2}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/cart/items (304 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:32:08.067638Z', 'id': 1, 'price': 489.03, 'product_id': 6, 'product_name': 'Product-behavior', 'quantity': 2, 'total': 978.06}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/orders
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/orders (272 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:32:08.338299Z', 'id': 20, 'items': [{'created_at': '2026-10-12T10:32:08.067638Z', 'id': 1, 'price': 489.03, 'product_id': 6, 'product_name': 'Product-behavior', 'quantity': 2, 'total': 978.06}], 'status': 'pending', 'total': 978.06}
+INFO     api:api_client.py:62 ➡️  PUT https://aqa-proka4.org/sandbox/api/orders/20/cancel
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/orders/20/cancel (246 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:32:08.338299Z', 'id': 20, 'items': [{'created_at': '2026-10-12T10:32:08.067638Z', 'id': 1, 'price': 489.03, 'product_id': 6, 'product_name': 'Product-behavior', 'quantity': 2, 'total': 978.06}], 'status': 'cancelled', 'total': 978.06, 'updated_at': '2026-10-12T10:32:08.604394Z'}
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/orders/20
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/orders/20 (217 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:32:08.338299Z', 'id': 20, 'items': [{'created_at': '2026-10-12T10:32:08.067638Z', 'id': 1, 'price': 489.03, 'product_id': 6, 'product_name': 'Product-behavior', 'quantity': 2, 'total': 978.06}], 'status': 'cancelled', 'total': 978.06, 'updated_at': '2026-10-12T10:32:08.604394Z'}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (231 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-seek'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-seek (257 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (265 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (209 ms)
+INFO     api:api_client.py:113    response body: <empty>

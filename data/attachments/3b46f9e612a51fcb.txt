@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-but",
+  "description": "Four service day customer win.",
+  "category": "Category-field",
+  "price": 17.44,
+  "stock": 17,
+  "image_url": "https://via.placeholder.com/300"
+}

@@ -1,0 +1,28 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-through'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (244 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:32:10.040370Z', 'id': 5, 'name': 'Category-through'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-attack', 'description': 'Watch science outside leg.', 'category': 'Category-through', 'price': 553.47, 'stock': 19, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (235 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-through', 'created_at': '2026-10-12T10:32:10.279633Z', 'description': 'Watch science outside leg.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-attack', 'price': 553.47, 'stock': 19}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (209 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/cart/items
+INFO     api:api_client.py:73    body (json): {'product_id': 6, 'quantity': 2}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/cart/items (319 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:32:10.788981Z', 'id': 1, 'price': 553.47, 'product_id': 6, 'product_name': 'Product-attack', 'quantity': 2, 'total': 1106.94}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/orders
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/orders (285 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:32:11.069675Z', 'id': 21, 'items': [{'created_at': '2026-10-12T10:32:10.788981Z', 'id': 1, 'price': 553.47, 'product_id': 6, 'product_name': 'Product-attack', 'quantity': 2, 'total': 1106.94}], 'status': 'pending', 'total': 1106.94}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (236 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-through'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-through (241 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (255 ms)
+INFO     api:api_client.py:113    response body: <empty>

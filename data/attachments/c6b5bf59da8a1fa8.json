@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-12T10:32:11.069675Z",
+  "id": 21,
+  "items": [
+    {
+      "created_at": "2026-10-12T10:32:10.788981Z",
+      "id": 1,
+      "price": 553.47,
+      "product_id": 6,
+      "product_name": "Product-attack",
+      "quantity": 2,
+      "total": 1106.94
+    }
+  ],
+  "status": "pending",
+  "total": 1106.94
+}

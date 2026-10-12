@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-she",
+  "description": "Compare become whole but.",
+  "category": "Category-bad",
+  "price": 721.68,
+  "stock": 87,
+  "image_url": "https://via.placeholder.com/300"
+}

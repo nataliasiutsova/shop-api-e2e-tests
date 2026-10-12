@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-behavior",
+  "description": "Natural just society join property.",
+  "category": "Category-seek",
+  "price": 489.03,
+  "stock": 35,
+  "image_url": "https://via.placeholder.com/300"
+}

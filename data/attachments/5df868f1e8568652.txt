@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-billion",
+  "description": "Model next eye company beyond candidate show.",
+  "category": "Category-two",
+  "price": 241.89,
+  "stock": 59,
+  "image_url": "https://via.placeholder.com/300"
+}

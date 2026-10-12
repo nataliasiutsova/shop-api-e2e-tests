@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-and",
+  "description": "Hospital strategy general.",
+  "category": "Category-concern",
+  "price": 611.98,
+  "stock": 40,
+  "image_url": "https://via.placeholder.com/300"
+}

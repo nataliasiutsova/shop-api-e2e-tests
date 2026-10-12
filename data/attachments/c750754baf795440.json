@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-12T10:32:08.338299Z",
+  "id": 20,
+  "items": [
+    {
+      "created_at": "2026-10-12T10:32:08.067638Z",
+      "id": 1,
+      "price": 489.03,
+      "product_id": 6,
+      "product_name": "Product-behavior",
+      "quantity": 2,
+      "total": 978.06
+    }
+  ],
+  "status": "pending",
+  "total": 978.06
+}

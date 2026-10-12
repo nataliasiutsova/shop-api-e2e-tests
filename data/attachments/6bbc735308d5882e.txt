@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-attack",
+  "description": "Watch science outside leg.",
+  "category": "Category-through",
+  "price": 553.47,
+  "stock": 19,
+  "image_url": "https://via.placeholder.com/300"
+}
