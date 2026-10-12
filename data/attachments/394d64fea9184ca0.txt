@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-ready",
+  "description": "Try article outside southern rate.",
+  "category": "Category-feel",
+  "price": 477.54,
+  "stock": 52,
+  "image_url": "https://via.placeholder.com/300"
+}

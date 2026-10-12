@@ -1,0 +1,6 @@
+GET https://aqa-proka4.org/sandbox/api/products
+
+Query params:
+{
+  "category": "Category-his"
+}

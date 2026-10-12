@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-against",
+  "description": "Finish lay model area always kitchen.",
+  "category": "Category-his",
+  "price": 567.43,
+  "stock": 45,
+  "image_url": "https://via.placeholder.com/300"
+}

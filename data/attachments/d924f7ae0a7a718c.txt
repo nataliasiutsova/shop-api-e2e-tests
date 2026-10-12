@@ -1,0 +1,18 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-quickly'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (188 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T11:38:56.290820Z', 'id': 5, 'name': 'Category-quickly'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-training', 'description': 'Director contain player land yet black fast.', 'category': 'Category-quickly', 'price': 610.4, 'stock': 61, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (195 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-quickly', 'created_at': '2026-10-12T11:38:56.488173Z', 'description': 'Director contain player land yet black fast.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-training', 'price': 610.4, 'stock': 61}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (191 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-quickly'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-quickly (193 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (207 ms)
+INFO     api:api_client.py:113    response body: <empty>

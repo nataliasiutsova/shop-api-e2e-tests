@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-training",
+  "description": "Director contain player land yet black fast.",
+  "category": "Category-quickly",
+  "price": 610.4,
+  "stock": 61,
+  "image_url": "https://via.placeholder.com/300"
+}

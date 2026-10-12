@@ -1,0 +1,21 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-step'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (202 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T11:38:57.641634Z', 'id': 5, 'name': 'Category-step'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-knowledge', 'description': 'Avoid draw your training star building.', 'category': 'Category-step', 'price': 651.28, 'stock': 41, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (202 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-step', 'created_at': '2026-10-12T11:38:57.841845Z', 'description': 'Avoid draw your training star building.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-knowledge', 'price': 651.28, 'stock': 41}
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products/6 (171 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-step', 'created_at': '2026-10-12T11:38:57.841845Z', 'description': 'Avoid draw your training star building.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-knowledge', 'price': 651.28, 'stock': 41}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (204 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-step'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-step (176 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (210 ms)
+INFO     api:api_client.py:113    response body: <empty>

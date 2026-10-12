@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-another",
+  "description": "Coach hit guy particularly meet exactly natural.",
+  "category": "Category-perform",
+  "price": 739.57,
+  "stock": 80,
+  "image_url": "https://via.placeholder.com/300"
+}
