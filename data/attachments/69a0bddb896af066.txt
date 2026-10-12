@@ -1,0 +1,1 @@
+DELETE https://aqa-proka4.org/sandbox/api/products/6

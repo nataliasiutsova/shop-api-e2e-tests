@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-could",
+  "description": "Director table dark week half machine kind.",
+  "category": "Category-start",
+  "price": 514.66,
+  "stock": 44,
+  "image_url": "https://via.placeholder.com/300"
+}

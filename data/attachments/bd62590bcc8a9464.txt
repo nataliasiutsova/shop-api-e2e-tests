@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-build",
+  "description": "Matter of those.",
+  "category": "Category-act",
+  "price": 168.56,
+  "stock": 26,
+  "image_url": "https://via.placeholder.com/300"
+}

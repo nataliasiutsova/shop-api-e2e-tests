@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-10-12T09:32:32.018749Z",
+  "id": 7,
+  "items": [
+    {
+      "created_at": "2026-10-12T09:32:31.697265Z",
+      "id": 1,
+      "price": 236.41,
+      "product_id": 6,
+      "product_name": "Product-put",
+      "quantity": 2,
+      "total": 472.82
+    }
+  ],
+  "status": "cancelled",
+  "total": 472.82,
+  "updated_at": "2026-10-12T09:32:32.337098Z"
+}

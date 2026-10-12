@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-put",
+  "description": "Wait pass marriage class.",
+  "category": "Category-address",
+  "price": 236.41,
+  "stock": 85,
+  "image_url": "https://via.placeholder.com/300"
+}

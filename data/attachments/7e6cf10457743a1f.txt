@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-attention",
+  "description": "Result identify offer everybody work.",
+  "category": "Category-public",
+  "price": 79.72,
+  "stock": 19,
+  "image_url": "https://via.placeholder.com/300"
+}

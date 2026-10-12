@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-12T09:32:28.223749Z",
+  "id": 6,
+  "items": [
+    {
+      "created_at": "2026-10-12T09:32:27.657965Z",
+      "id": 1,
+      "price": 168.56,
+      "product_id": 6,
+      "product_name": "Product-build",
+      "quantity": 2,
+      "total": 337.12
+    }
+  ],
+  "status": "pending",
+  "total": 337.12
+}

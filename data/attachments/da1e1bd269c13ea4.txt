@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-never",
+  "description": "Represent career someone energy old compare.",
+  "category": "Category-since",
+  "price": 422.3,
+  "stock": 70,
+  "image_url": "https://via.placeholder.com/300"
+}

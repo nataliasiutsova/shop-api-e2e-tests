@@ -1,0 +1,18 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-talk'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (281 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T09:32:36.386126Z', 'id': 5, 'name': 'Category-talk'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-book', 'description': 'Base behind chair and even animal.', 'category': 'Category-talk', 'price': 320.69, 'stock': 42, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (290 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-talk', 'created_at': '2026-10-12T09:32:36.680135Z', 'description': 'Base behind chair and even animal.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-book', 'price': 320.69, 'stock': 42}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (273 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-talk'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-talk (560 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (302 ms)
+INFO     api:api_client.py:113    response body: <empty>

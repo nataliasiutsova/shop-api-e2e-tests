@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-fund",
+  "description": "Impact affect teacher question.",
+  "category": "Category-source",
+  "price": 900.27,
+  "stock": 52,
+  "image_url": "https://via.placeholder.com/300"
+}
