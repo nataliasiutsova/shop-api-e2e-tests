@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-to",
+  "description": "Thought about believe game pass.",
+  "category": "Category-there",
+  "price": 311.96,
+  "stock": 95,
+  "image_url": "https://via.placeholder.com/300"
+}

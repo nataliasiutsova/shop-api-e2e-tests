@@ -1,0 +1,8 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"","Products","Create product","0","0","1","0","0"
+"","Сart","Add item to cart","0","0","1","0","0"
+"","Products","Get product by id","0","0","2","0","0"
+"","Products","Get all products","0","0","2","0","0"
+"","E2E","","0","0","3","0","0"
+"","Сart","Get cart","0","0","1","0","0"
+"","Order","Сreate orders","0","0","1","0","0"

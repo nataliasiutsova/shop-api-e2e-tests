@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-physical",
+  "description": "Short first score wall seat case brother fast.",
+  "category": "Category-level",
+  "price": 879.53,
+  "stock": 23,
+  "image_url": "https://via.placeholder.com/300"
+}

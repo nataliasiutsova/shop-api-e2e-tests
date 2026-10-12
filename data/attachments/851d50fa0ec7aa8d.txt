@@ -1,0 +1,21 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-hair'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (259 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T09:08:31.654881Z', 'id': 5, 'name': 'Category-hair'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-past', 'description': 'Become ball policy increase.', 'category': 'Category-hair', 'price': 330.82, 'stock': 32, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (260 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-hair', 'created_at': '2026-10-12T09:08:31.913716Z', 'description': 'Become ball policy increase.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-past', 'price': 330.82, 'stock': 32}
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products/6 (234 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-hair', 'created_at': '2026-10-12T09:08:31.913716Z', 'description': 'Become ball policy increase.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-past', 'price': 330.82, 'stock': 32}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (258 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-hair'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-hair (224 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (286 ms)
+INFO     api:api_client.py:113    response body: <empty>

@@ -1,0 +1,28 @@
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (3954 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-light'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (307 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T09:08:17.648523Z', 'id': 5, 'name': 'Category-light'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-trip', 'description': 'Special house relationship cost yeah listen.', 'category': 'Category-light', 'price': 793.37, 'stock': 90, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (274 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-light', 'created_at': '2026-10-12T09:08:17.925421Z', 'description': 'Special house relationship cost yeah listen.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-trip', 'price': 793.37, 'stock': 90}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/cart/items
+INFO     api:api_client.py:73    body (json): {'product_id': 6, 'quantity': 1}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/cart/items (334 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T09:08:18.260465Z', 'id': 1, 'price': 793.37, 'product_id': 6, 'product_name': 'Product-trip', 'quantity': 1, 'total': 793.37}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (259 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-light'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-light (239 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (283 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (225 ms)
+INFO     api:api_client.py:113    response body: <empty>

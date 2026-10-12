@@ -1,0 +1,21 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-green'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (319 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T09:08:33.173072Z', 'id': 5, 'name': 'Category-green'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-fight', 'description': 'Four discover strong four power.', 'category': 'Category-green', 'price': 74.28, 'stock': 76, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (263 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-green', 'created_at': '2026-10-12T09:08:33.491265Z', 'description': 'Four discover strong four power.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-fight', 'price': 74.28, 'stock': 76}
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products/6 (235 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-green', 'created_at': '2026-10-12T09:08:33.491265Z', 'description': 'Four discover strong four power.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-fight', 'price': 74.28, 'stock': 76}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (238 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-green'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-green (238 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (290 ms)
+INFO     api:api_client.py:113    response body: <empty>

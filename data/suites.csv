@@ -1,0 +1,16 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Oct 12 09:08:29 UTC 2026","Mon Oct 12 09:08:30 UTC 2026","546","tests.products","test_create_product","","","","POST /products — creates product successfully","Verifies that POST /products creates a product and returns 201 with a valid id. "
+"passed","Mon Oct 12 09:08:18 UTC 2026","Mon Oct 12 09:08:18 UTC 2026","335","tests.cart","test_add_item","","","","POST /cart/items — adds a product and returns 201","Adds a valid product to the cart and verifies that returns 201 "
+"passed","Mon Oct 12 09:08:32 UTC 2026","Mon Oct 12 09:08:32 UTC 2026","235","tests.products","test_get_product","","","","GET /products/{id} — returns 200 OK","Verifies that GET /products/{id} is available and returns 200 for an existing product."
+"passed","Mon Oct 12 09:08:31 UTC 2026","Mon Oct 12 09:08:31 UTC 2026","234","tests.products","test_get_all_products","","","","GET /products — 'data' field is a list","Verifies that the response contains a 'data' field and it is a list. "
+"passed","Mon Oct 12 09:08:33 UTC 2026","Mon Oct 12 09:08:33 UTC 2026","237","tests.products","test_get_product","","","","GET /products/{id} — returns object (dict)","Verifies that GET /products/{id} returns a JSON object (dict), not a list. "
+"passed","Mon Oct 12 09:08:20 UTC 2026","Mon Oct 12 09:08:21 UTC 2026","891","tests.e2e","test_e2e","","","","E2E — create product, add to cart, place orders","Full checkout flow across three services:
+1. Create a product (POST /products)
+2. Add it to the cart (POST /cart/items)
+3. Place an orders (POST /orders)
+4. Verify the orders is created with the correct items and total"
+"passed","Mon Oct 12 09:08:19 UTC 2026","Mon Oct 12 09:08:19 UTC 2026","250","tests.cart","test_get_cart","","","","GET /api/cart — returns 200 OK","Verifies that GET /api/cart returns 200 OK"
+"passed","Mon Oct 12 09:08:24 UTC 2026","Mon Oct 12 09:08:25 UTC 2026","1108","tests.e2e","test_e2e","","","","E2E — cancel an orders and verify it stays cancelled","Places an orders, cancels it via PUT /orders/{id}/cancel, and verifies the status is 'cancelled' via both response and GET /orders/{id}."
+"passed","Mon Oct 12 09:08:23 UTC 2026","Mon Oct 12 09:08:23 UTC 2026","480","tests.e2e","test_e2e","","","","E2E — placing an orders with an empty cart returns 400","Verifies that POST /orders fails with 400 when the cart is empty."
+"passed","Mon Oct 12 09:08:27 UTC 2026","Mon Oct 12 09:08:28 UTC 2026","924","tests.orders","test_create_order","","","","POST /api/orders — creates an orders and returns 201 Created","Creates an orders from a non-empty cart and verifies the response "
+"passed","Mon Oct 12 09:08:31 UTC 2026","Mon Oct 12 09:08:31 UTC 2026","257","tests.products","test_get_all_products","","","","GET /products — returns 200 OK","Verifies that GET /products endpoint is available and returns 200. "

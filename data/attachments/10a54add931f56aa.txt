@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-fight",
+  "description": "Four discover strong four power.",
+  "category": "Category-green",
+  "price": 74.28,
+  "stock": 76,
+  "image_url": "https://via.placeholder.com/300"
+}
