@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-behind",
+  "description": "Necessary will thank glass current process tell.",
+  "category": "Category-sense",
+  "price": 530.58,
+  "stock": 14,
+  "image_url": "https://via.placeholder.com/300"
+}

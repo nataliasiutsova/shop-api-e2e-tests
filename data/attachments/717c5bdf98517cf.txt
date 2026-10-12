@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-pretty",
+  "description": "Become cause former red recently name eye.",
+  "category": "Category-amount",
+  "price": 735.44,
+  "stock": 31,
+  "image_url": "https://via.placeholder.com/300"
+}

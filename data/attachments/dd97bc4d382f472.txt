@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-resource",
+  "description": "Both what tend program challenge rich.",
+  "category": "Category-budget",
+  "price": 586.51,
+  "stock": 35,
+  "image_url": "https://via.placeholder.com/300"
+}

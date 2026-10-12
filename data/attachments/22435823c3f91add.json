@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-12T10:55:32.584890Z",
+  "id": 29,
+  "items": [
+    {
+      "created_at": "2026-10-12T10:55:32.363898Z",
+      "id": 1,
+      "price": 735.44,
+      "product_id": 6,
+      "product_name": "Product-pretty",
+      "quantity": 2,
+      "total": 1470.88
+    }
+  ],
+  "status": "pending",
+  "total": 1470.88
+}

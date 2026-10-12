@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-window",
+  "description": "Wind space nice nothing accept once.",
+  "category": "Category-different",
+  "price": 538.25,
+  "stock": 33,
+  "image_url": "https://via.placeholder.com/300"
+}

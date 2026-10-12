@@ -1,0 +1,15 @@
+{
+  "count": 1,
+  "items": [
+    {
+      "created_at": "2026-10-12T10:55:29.666290Z",
+      "id": 1,
+      "price": 530.58,
+      "product_id": 6,
+      "product_name": "Product-behind",
+      "quantity": 2,
+      "total": 1061.16
+    }
+  ],
+  "total": 1061.16
+}

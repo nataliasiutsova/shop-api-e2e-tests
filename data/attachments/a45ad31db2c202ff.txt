@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-majority",
+  "description": "Enough hard another start improve speech.",
+  "category": "Category-lay",
+  "price": 654.11,
+  "stock": 49,
+  "image_url": "https://via.placeholder.com/300"
+}

@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-product",
+  "description": "Then stuff ok lot.",
+  "category": "Category-treat",
+  "price": 873.32,
+  "stock": 31,
+  "image_url": "https://via.placeholder.com/300"
+}
