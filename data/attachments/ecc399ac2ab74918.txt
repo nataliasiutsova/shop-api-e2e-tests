@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-popular",
+  "description": "Effort such general majority there.",
+  "category": "Category-without",
+  "price": 479.22,
+  "stock": 27,
+  "image_url": "https://via.placeholder.com/300"
+}

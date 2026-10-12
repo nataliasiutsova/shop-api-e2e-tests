@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-12T10:34:35.968074Z",
+  "id": 22,
+  "items": [
+    {
+      "created_at": "2026-10-12T10:34:35.565058Z",
+      "id": 1,
+      "price": 479.22,
+      "product_id": 6,
+      "product_name": "Product-popular",
+      "quantity": 2,
+      "total": 958.44
+    }
+  ],
+  "status": "pending",
+  "total": 958.44
+}

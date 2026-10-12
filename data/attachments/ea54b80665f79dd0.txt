@@ -1,0 +1,18 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-everyone'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (193 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:34:41.850979Z', 'id': 5, 'name': 'Category-everyone'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-know', 'description': 'Perhaps cost idea particular present.', 'category': 'Category-everyone', 'price': 190.01, 'stock': 96, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (226 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-everyone', 'created_at': '2026-10-12T10:34:42.068188Z', 'description': 'Perhaps cost idea particular present.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-know', 'price': 190.01, 'stock': 96}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (204 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-everyone'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-everyone (174 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (218 ms)
+INFO     api:api_client.py:113    response body: <empty>

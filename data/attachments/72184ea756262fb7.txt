@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-where",
+  "description": "Level fund bit line little.",
+  "category": "Category-where",
+  "price": 760.19,
+  "stock": 78,
+  "image_url": "https://via.placeholder.com/300"
+}

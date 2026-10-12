@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-board",
+  "description": "Risk check break theory act employee than.",
+  "category": "Category-represent",
+  "price": 832.45,
+  "stock": 79,
+  "image_url": "https://via.placeholder.com/300"
+}

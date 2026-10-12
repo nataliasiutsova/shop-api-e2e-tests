@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-know",
+  "description": "Perhaps cost idea particular present.",
+  "category": "Category-everyone",
+  "price": 190.01,
+  "stock": 96,
+  "image_url": "https://via.placeholder.com/300"
+}
