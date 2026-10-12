@@ -25,23 +25,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ---------- Checkout ----------
       - name: Checkout
         uses: actions/checkout@v4
 
+      # ---------- Python ----------
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
 
+      # ---------- Dependencies ----------
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install allure-pytest
 
-      - name: Restore Allure history
-        uses: actions/cache/restore@v4
+      # ---------- Cache Allure history (restore at start, save at end) ----------
+      - name: Cache Allure history
+        uses: actions/cache@v4
         with:
           path: allure-results/history
           key: allure-history-${{ github.ref_name }}-${{ inputs.marker || 'smoke' }}-${{ github.run_id }}
@@ -50,6 +54,7 @@ jobs:
             allure-history-${{ github.ref_name }}-
             allure-history-
 
+      # ---------- Run tests ----------
       - name: Run tests
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
@@ -59,6 +64,7 @@ jobs:
           echo "▶ Marker: $MARKER"
           pytest -m "$MARKER" --alluredir=allure-results
 
+      # ---------- Install Allure CLI ----------
       - name: Install Allure CLI
         if: always()
         run: |
@@ -67,18 +73,20 @@ jobs:
           sudo mv allure-2.27.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
 
+      # ---------- Generate Allure report ----------
       - name: Generate Allure report
         if: always()
         run: |
           allure generate allure-results -o allure-report --clean
 
-      - name: Save Allure history
+      # ---------- Copy new history back for next run ----------
+      - name: Copy history back for next run
         if: always()
-        uses: actions/cache/save@v4
-        with:
-          path: allure-report/history
-          key: allure-history-${{ github.ref_name }}-${{ inputs.marker || 'smoke' }}-${{ github.run_id }}
+        run: |
+          mkdir -p allure-results/history
+          cp -r allure-report/history/* allure-results/history/ || true
 
+      # ---------- Upload Allure report (artifact) ----------
       - name: Upload Allure report (artifact)
         if: always()
         uses: actions/upload-artifact@v4
@@ -87,6 +95,7 @@ jobs:
           path: allure-report
           retention-days: 30
 
+      # ---------- Add report link to Summary ----------
       - name: Add report link to summary
         if: always()
         env:
@@ -103,6 +112,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Report:** [$URL]($URL)" >> $GITHUB_STEP_SUMMARY
 
+      # ---------- Deploy smoke to Pages root ----------
       - name: Deploy smoke to Pages root
         if: always() && github.ref == 'refs/heads/main' && (inputs.marker || 'smoke') == 'smoke'
         uses: peaceiris/actions-gh-pages@v4
@@ -112,6 +122,7 @@ jobs:
           publish_dir: allure-report
           keep_files: true
 
+      # ---------- Deploy marker to Pages subfolder ----------
       - name: Deploy marker to Pages subfolder
         if: always() && github.ref == 'refs/heads/main' && (inputs.marker || 'smoke') != 'smoke'
         uses: peaceiris/actions-gh-pages@v4
