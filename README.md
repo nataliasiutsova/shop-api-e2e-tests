@@ -4,10 +4,11 @@ Layered API test framework for the **Shop API** (products, cart, orders) built w
 **Allure**.
 135 tests covering REST API, schema validation, and end-to-end business flows.
 
+[![Tests](https://github.com/nataliasiutsova/shop-api-e2e-tests/actions/workflows/tests.yml/badge.svg)](https://github.com/nataliasiutsova/shop-api-e2e-tests/actions/workflows/tests.yml)
+[![Latest Allure Report](https://img.shields.io/badge/latest_allure_report-orange)](https://nataliasiutsova.github.io/shop-api-e2e-tests/)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![pytest](https://img.shields.io/badge/pytest-8.0-green)
 ![Pydantic](https://img.shields.io/badge/pydantic-v2-red)
-![Allure](https://img.shields.io/badge/report-allure-orange)
 ![Docker](https://img.shields.io/badge/docker-ready-blue)
 
 > ⚠️ **Note:** The sandbox API (`aqa-proka4.org`) enforces a **rate limit of 20 requests per 60 seconds**. The full
@@ -257,6 +258,17 @@ def test_add_item_success(empty_cart, created_product):
 ---
 
 ## Allure Reports
+
+### 🔗 Latest Report (auto-updated)
+
+**→ [Open the latest Allure report](https://nataliasiutsova.github.io/shop-api-e2e-tests/)**
+
+The report is regenerated on **every push to `main`** and published via GitHub Pages. It always reflects the **latest
+test run** from CI.
+
+Status of the last run:
+
+[![Tests](https://github.com/nataliasiutsova/shop-api-e2e-tests/actions/workflows/tests.yml/badge.svg)](https://github.com/nataliasiutsova/shop-api-e2e-tests/actions/workflows/tests.yml)
 
 ### Locally
 
