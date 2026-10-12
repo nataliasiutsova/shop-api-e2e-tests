@@ -72,7 +72,6 @@ Layered API test framework for the **Shop API** (products, cart, orders) built w
 │   └── e2e/                   # End-to-end flows (9)
 ├── utils/
 │   ├── data_generator.py      # Fake data helpers
-│   ├── environment.py         # Docker/CI detection
 │   └── logging_utils.py       # Log masking and truncation
 ├── conftest.py                # Shared fixtures (DI)
 ├── pytest.ini                 # Markers and configuration
@@ -142,7 +141,7 @@ pytest
 # Smoke tests (fast)
 pytest -m smoke
 
-⚠️**See the note about rate limit at the top of the document**
+⚠️See the note about rate limit at the top of the document.
 # Regression tests
 pytest -m regression
 
