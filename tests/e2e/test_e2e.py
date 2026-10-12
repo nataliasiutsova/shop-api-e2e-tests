@@ -283,9 +283,10 @@ def test_multi_item_order(
 @allure.severity(allure.severity_level.CRITICAL)
 def test_cancel_order_flow(cart_service, order_service, empty_cart, created_product):
     product_id = created_product["id"]
+    stock = created_product["stock"]
 
     with allure.step(f"Add product id={product_id} to the cart"):
-        cart_service.add_item({"product_id": product_id, "quantity": 2})
+        cart_service.add_item({"product_id": product_id, "quantity": min(2, stock)})
 
     with allure.step("Place an orders"):
         order = order_service.create_order().json()

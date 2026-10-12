@@ -5,6 +5,11 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
 
 jobs:
   smoke:
@@ -33,10 +38,41 @@ jobs:
         run: |
           pytest -m smoke --alluredir=allure-results
 
-      - name: Upload Allure results
+      - name: Install Allure CLI
+        if: always()
+        run: |
+          curl -o allure.tgz -Ls https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+          tar -xzf allure.tgz
+          sudo mv allure-2.27.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
+
+      - name: Restore Allure history
+        if: always()
+        uses: actions/cache@v4
+        with:
+          path: allure-report/history
+          key: allure-history-${{ github.run_id }}
+          restore-keys: |
+            allure-history-
+
+      - name: Generate Allure report
+        if: always()
+        run: |
+          allure generate allure-results -o allure-report --clean
+
+      - name: Upload Allure report (artifact)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results
-          path: allure-results
-          retention-days: 7
+          name: allure-report
+          path: allure-report
+          retention-days: 30
+
+      - name: Deploy to GitHub Pages
+        if: always() && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-report
+          keep_files: true
