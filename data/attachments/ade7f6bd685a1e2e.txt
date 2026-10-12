@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-lawyer",
+  "description": "Six weight couple bring official stock.",
+  "category": "Category-protect",
+  "price": 563.68,
+  "stock": 91,
+  "image_url": "https://via.placeholder.com/300"
+}

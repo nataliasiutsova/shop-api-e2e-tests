@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-maintain",
+  "description": "Way teacher once once sport.",
+  "category": "Category-day",
+  "price": 338.29,
+  "stock": 82,
+  "image_url": "https://via.placeholder.com/300"
+}

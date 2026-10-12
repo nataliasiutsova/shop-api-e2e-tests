@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-10-12T10:07:04.603359Z",
+  "id": 10,
+  "items": [
+    {
+      "created_at": "2026-10-12T10:07:04.323471Z",
+      "id": 1,
+      "price": 563.68,
+      "product_id": 6,
+      "product_name": "Product-lawyer",
+      "quantity": 2,
+      "total": 1127.36
+    }
+  ],
+  "status": "cancelled",
+  "total": 1127.36,
+  "updated_at": "2026-10-12T10:07:04.893282Z"
+}

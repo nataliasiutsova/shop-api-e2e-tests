@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-development",
+  "description": "Program hold determine room alone.",
+  "category": "Category-line",
+  "price": 853.19,
+  "stock": 51,
+  "image_url": "https://via.placeholder.com/300"
+}

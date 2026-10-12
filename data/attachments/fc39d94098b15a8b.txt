@@ -1,0 +1,21 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-middle'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (301 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-12T10:07:12.585350Z', 'id': 5, 'name': 'Category-middle'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-campaign', 'description': 'Third inside environmental quite his TV.', 'category': 'Category-middle', 'price': 381.7, 'stock': 34, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (299 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-middle', 'created_at': '2026-10-12T10:07:12.873343Z', 'description': 'Third inside environmental quite his TV.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-campaign', 'price': 381.7, 'stock': 34}
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products/6 (256 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-middle', 'created_at': '2026-10-12T10:07:12.873343Z', 'description': 'Third inside environmental quite his TV.', 'id': 6, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-campaign', 'price': 381.7, 'stock': 34}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/6
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/6 (361 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-middle'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-middle (240 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (297 ms)
+INFO     api:api_client.py:113    response body: <empty>

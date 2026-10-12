@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-range",
+  "description": "Mrs might war PM.",
+  "category": "Category-manage",
+  "price": 71.15,
+  "stock": 49,
+  "image_url": "https://via.placeholder.com/300"
+}
