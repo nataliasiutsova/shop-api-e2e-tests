@@ -200,6 +200,33 @@ chmod +x run_docker.sh
 4. Restores Allure `history` from the previous run (for Trend).
 5. Generates and opens the Allure report.
 
+### Running via GitHub Actions
+
+The CI pipeline supports **two modes**:
+
+**1. Automatic (on every push to `main`)**
+
+Smoke tests run automatically. Results are published to the live Allure report.
+
+**2. Manual (any marker)**
+
+Trigger any test suite manually from the GitHub UI:
+
+1. Go to **Actions → Tests**.
+2. Click **Run workflow** (top right).
+3. Choose a marker from the dropdown:
+
+   | Marker | What runs | Tests |
+            | :--- | :--- |:---|
+   | `smoke` | Critical tests | 11 |
+   | `regression` | Full regression suite | 135 |
+   | `e2e` | End-to-end flows only | 9  |
+   | `known_bug` | Tests with known product bugs | —  |
+
+4. Click **Run workflow**.
+
+**After the run**, open the **Summary** tab of the workflow run — it contains a direct link to the Allure report.
+
 ### Test Markers
 
 | Marker       | Purpose                                   | Run                    |
@@ -259,16 +286,20 @@ def test_add_item_success(empty_cart, created_product):
 
 ## Allure Reports
 
-### 🔗 Latest Report (auto-updated)
+### 🔗 Live Report (auto-updated)
 
 **→ [Open the latest Allure report](https://nataliasiutsova.github.io/shop-api-e2e-tests/)**
 
-The report is regenerated on **every push to `main`** and published via GitHub Pages. It always reflects the **latest
-test run** from CI.
+The report is **regenerated on every push to `main`** and published via GitHub Pages. It always reflects the **latest
+test run** from CI, including:
 
-Status of the last run:
+- **Suites** — by service (Products, Cart, Orders, E2E)
+- **Trend** — history across the last runs
+- **Categories** — Product defects / Test defects / Infrastructure
+- **Environment** — executor (Local / Docker / GitHub Actions)
 
-[![Tests](https://github.com/nataliasiutsova/shop-api-e2e-tests/actions/workflows/tests.yml/badge.svg)](https://github.com/nataliasiutsova/shop-api-e2e-tests/actions/workflows/tests.yml)
+> **Note:** GitHub Pages and the browser cache static assets. If you don't see recent changes, do a hard refresh: *
+*Cmd + Shift + R** (macOS) or **Ctrl + Shift + R** (Windows/Linux).
 
 ### Locally
 
@@ -344,8 +375,8 @@ parallelized, but the gain (~15 seconds) does not justify the added complexity a
 - [x] Pydantic schema validation
 - [x] Allure integration (steps, severity, features)
 - [x] Docker support (one-command test run)
-- [ ] GitHub Actions CI
-- [ ] CI badge in README
+- [x] GitHub Actions CI
+- [x] CI badge in README
 
 ---
 
