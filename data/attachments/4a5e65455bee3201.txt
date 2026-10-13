@@ -1,0 +1,3 @@
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:103 ⬅️  401 https://aqa-proka4.org/sandbox/api/products (197 ms)
+INFO     api:api_client.py:124    response body: {'error': 'Invalid or expired Bearer token', 'message': 'Please get a new token from /sandbox page'}

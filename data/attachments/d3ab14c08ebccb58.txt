@@ -1,0 +1,6 @@
+POST https://aqa-proka4.org/sandbox/api/categories
+
+Body (json):
+{
+  "name": "Category-hundred"
+}

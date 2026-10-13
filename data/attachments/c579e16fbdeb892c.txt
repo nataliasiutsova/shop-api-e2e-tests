@@ -1,0 +1,4 @@
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-account'}
+INFO     api:api_client.py:103 ⬅️  401 https://aqa-proka4.org/sandbox/api/categories (210 ms)
+INFO     api:api_client.py:124    response body: {'error': 'Invalid or expired Bearer token', 'message': 'Please get a new token from /sandbox page'}

@@ -1,1 +1,1 @@
-{"reportName":"Docker Report","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":11,"unknown":0,"total":11},"time":{"start":1791809036825,"stop":1791809049042,"duration":12217,"minDuration":186,"maxDuration":949,"sumDuration":4575}}
+{"reportName":"Docker Report","testRuns":[],"statistic":{"failed":11,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":11},"time":{"start":1791896212468,"stop":1791896216738,"duration":4270,"minDuration":0,"maxDuration":211,"sumDuration":812}}

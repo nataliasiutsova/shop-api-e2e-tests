@@ -1,0 +1,4 @@
+{
+  "error": "Invalid or expired Bearer token",
+  "message": "Please get a new token from /sandbox page"
+}
