@@ -29,6 +29,21 @@ Tests  →  Services  →  RequestClient  →  Models (Pydantic)
 
 ---
 
+## Test Coverage
+
+| Service      | Tests   | Scope                                                      |
+|:-------------|:--------|:-----------------------------------------------------------|
+| **Products** | 39      | CRUD, filtering, pagination, negative cases                |
+| **Cart**     | 37      | Add / get / update / delete items, clear, stock boundaries |
+| **Orders**   | 22      | Create from cart, get all, get by id, cancel               |
+| **E2E**      | 9       | Full checkout flow, snapshot, cancellation                 |
+| **Total**    | **135** |                                                            |
+
+**Common coverage:** schema validation (all 10 endpoints with body), negative cases (401, 404, 422, 400), boundary
+tests, Allure reporting.
+
+---
+
 ## Tech Stack
 
 | Layer            | Tool           |
@@ -118,45 +133,6 @@ BASE_URL=https://aqa-proka4.org/sandbox/api
 API_TOKEN=your_token_here
 ```
 
----
-
-## Test Coverage
-
-| Service      | Tests   | Scope                                                      |
-|:-------------|:--------|:-----------------------------------------------------------|
-| **Products** | 39      | CRUD, filtering, pagination, negative cases                |
-| **Cart**     | 37      | Add / get / update / delete items, clear, stock boundaries |
-| **Orders**   | 22      | Create from cart, get all, get by id, cancel               |
-| **E2E**      | 9       | Full checkout flow, snapshot, cancellation                 |
-| **Total**    | **135** |                                                            |
-
-**Common coverage:** schema validation (all 10 endpoints with body), negative cases (401, 404, 422, 400), boundary
-tests, Allure reporting.
-
----
-
-## Example Test
-
-```python
-@allure.title("POST /cart/items — adds a product and returns 201")
-@allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.regression
-def test_add_item_success(empty_cart, created_product):
-    product_id = created_product["id"]
-
-    with allure.step(f"Send POST /cart/items with product_id={product_id}"):
-        response = empty_cart.add_item({"product_id": product_id, "quantity": 2})
-
-    with allure.step(f"Verify status code is 201 (got {response.status_code})"):
-        assert response.status_code == 201
-        item = response.json()
-
-    with allure.step(f"Verify product_id={product_id} in response"):
-        assert item["product_id"] == product_id
-```
-
----
-
 ## Test Markers
 
 | Marker       | Purpose                           | Run                    |
@@ -176,23 +152,6 @@ def test_add_item_success(empty_cart, created_product):
 - **Categories:** product defects / test defects / infrastructure
 
 > Reports are cached by the browser. Hard refresh: **Cmd + Shift + R** (macOS) or **Ctrl + Shift + R**.
-
----
-
-## Design Decisions
-
-**Services layer** — tests don't know URLs or payload shapes. Endpoint changes touch one file.
-
-**Pydantic** — validating every response against a schema catches contract changes early. Without Pydantic, a missing
-field returns KeyError deep inside a test.
-With Pydantic, it fails at the boundary with a clear error.
-
-**Separate schema tests** — business tests verify *what* the API does; schema tests verify *what* it returns. Precise
-diagnostics.
-
-**Docker** — reproducibility. Same Python, same dependencies, same Allure — local and CI.
-
-**No parallel execution** — the API uses a single shared user and cart. Race conditions would cause flaky tests.
 
 ---
 
