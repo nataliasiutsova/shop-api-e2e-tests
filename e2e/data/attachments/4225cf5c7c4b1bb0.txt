@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-represent",
+  "description": "Instead their project hear.",
+  "category": "Category-enter",
+  "price": 743.79,
+  "stock": 55,
+  "image_url": "https://via.placeholder.com/300"
+}

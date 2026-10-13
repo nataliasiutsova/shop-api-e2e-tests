@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-class",
+  "description": "Easy camera protect significant activity west executive ago.",
+  "category": "Category-into",
+  "price": 437.03,
+  "stock": 40,
+  "image_url": "https://via.placeholder.com/300"
+}

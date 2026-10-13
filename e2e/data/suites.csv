@@ -1,0 +1,15 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Oct 13 13:08:55 UTC 2026","Tue Oct 13 13:08:56 UTC 2026","667","tests.e2e","test_e2e","","","","E2E — cart is cleared after placing an orders","Verifies that after a successful POST /orders, the cart becomes empty."
+"passed","Tue Oct 13 13:08:57 UTC 2026","Tue Oct 13 13:08:58 UTC 2026","855","tests.e2e","test_e2e","","","","E2E — orders keeps a snapshot of the product data","Places an orders, then updates the product price and name.
+Verifies the orders keeps the original values — it's a snapshot, not a live reference to the product."
+"passed","Tue Oct 13 13:09:04 UTC 2026","Tue Oct 13 13:09:05 UTC 2026","1028","tests.e2e","test_e2e","","","","E2E — cancel an orders and verify it stays cancelled","Places an orders, cancels it via PUT /orders/{id}/cancel, and verifies the status is 'cancelled' via both response and GET /orders/{id}."
+"passed","Tue Oct 13 13:09:07 UTC 2026","Tue Oct 13 13:09:08 UTC 2026","1003","tests.e2e","test_e2e","","","","E2E — cancelling an already cancelled orders returns 400","Cancels an orders, then attempts to cancel it again and expects 400."
+"passed","Tue Oct 13 13:09:00 UTC 2026","Tue Oct 13 13:09:00 UTC 2026","370","tests.e2e","test_e2e","","","","E2E — cannot add more than available stock to the cart","Verifies that adding a quantity greater than product stock fails with 400."
+"passed","Tue Oct 13 13:08:59 UTC 2026","Tue Oct 13 13:08:59 UTC 2026","346","tests.e2e","test_e2e","","","","E2E — placing an orders with an empty cart returns 400","Verifies that POST /orders fails with 400 when the cart is empty."
+"passed","Tue Oct 13 13:08:53 UTC 2026","Tue Oct 13 13:08:54 UTC 2026","750","tests.e2e","test_e2e","","","","E2E — create product, add to cart, place orders","Full checkout flow across three services:
+1. Create a product (POST /products)
+2. Add it to the cart (POST /cart/items)
+3. Place an orders (POST /orders)
+4. Verify the orders is created with the correct items and total"
+"passed","Tue Oct 13 13:09:09 UTC 2026","Tue Oct 13 13:09:10 UTC 2026","1124","tests.e2e","test_e2e","","","","E2E — cancelling an orders does not return items to the cart","Places an orders, cancels it, and verifies the cart remains empty."
+"passed","Tue Oct 13 13:09:02 UTC 2026","Tue Oct 13 13:09:03 UTC 2026","1218","tests.e2e","test_e2e","","","","E2E — orders with multiple different products","Adds two different products to the cart, places an orders, and verifies both items are included with the correct totals."

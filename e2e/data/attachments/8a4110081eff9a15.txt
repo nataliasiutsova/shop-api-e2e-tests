@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-including",
+  "description": "Understand Congress home through early husband plan.",
+  "category": "Category-on",
+  "price": 559.58,
+  "stock": 56,
+  "image_url": "https://via.placeholder.com/300"
+}

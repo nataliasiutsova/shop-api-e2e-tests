@@ -1,0 +1,1 @@
+product_id=7, stock=40, requested=41

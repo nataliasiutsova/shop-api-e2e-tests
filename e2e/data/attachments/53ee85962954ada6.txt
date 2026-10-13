@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-be",
+  "description": "System get seek group science.",
+  "category": "Category-item",
+  "price": 583.74,
+  "stock": 47,
+  "image_url": "https://via.placeholder.com/300"
+}

@@ -1,0 +1,7 @@
+PUT https://aqa-proka4.org/sandbox/api/products/7
+
+Body (json):
+{
+  "name": "Updated-fd6d51",
+  "price": 999.99
+}

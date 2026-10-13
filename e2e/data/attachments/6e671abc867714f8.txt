@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-wonder",
+  "description": "Son training few sing report.",
+  "category": "Category-production",
+  "price": 504.36,
+  "stock": 42,
+  "image_url": "https://via.placeholder.com/300"
+}

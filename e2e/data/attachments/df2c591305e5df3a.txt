@@ -1,0 +1,7 @@
+POST https://aqa-proka4.org/sandbox/api/cart/items
+
+Body (json):
+{
+  "product_id": 7,
+  "quantity": 41
+}

@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-body",
+  "description": "Respond with message.",
+  "category": "Category-exactly",
+  "price": 609.81,
+  "stock": 94,
+  "image_url": "https://via.placeholder.com/300"
+}

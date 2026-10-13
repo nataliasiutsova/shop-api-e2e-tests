@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-different",
+  "description": "Sing Congress value wish black course Mrs doctor.",
+  "category": "Category-cell",
+  "price": 472.75,
+  "stock": 98,
+  "image_url": "https://via.placeholder.com/300"
+}

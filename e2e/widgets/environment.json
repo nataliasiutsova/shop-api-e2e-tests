@@ -1,0 +1,1 @@
+[{"values":["https://aqa-proka4.org/sandbox/api"],"name":"Base.URL"},{"values":["Docker"],"name":"Environment"},{"values":["Docker"],"name":"Executor"},{"values":["3.12.15"],"name":"Python.Version"}]

@@ -1,0 +1,38 @@
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (152 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/categories
+INFO     api:api_client.py:73    body (json): {'name': 'Category-cell'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/categories (184 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-13T13:08:57.268274Z', 'id': 5, 'name': 'Category-cell'}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:73    body (json): {'name': 'Product-different', 'description': 'Sing Congress value wish black course Mrs doctor.', 'category': 'Category-cell', 'price': 472.75, 'stock': 98, 'image_url': 'https://via.placeholder.com/300'}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/products (195 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-cell', 'created_at': '2026-10-13T13:08:57.466642Z', 'description': 'Sing Congress value wish black course Mrs doctor.', 'id': 7, 'image_url': 'https://via.placeholder.com/300', 'name': 'Product-different', 'price': 472.75, 'stock': 98}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/cart/items
+INFO     api:api_client.py:73    body (json): {'product_id': 7, 'quantity': 1}
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/cart/items (252 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-13T13:08:57.707038Z', 'id': 1, 'price': 472.75, 'product_id': 7, 'product_name': 'Product-different', 'quantity': 1, 'total': 472.75}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/orders
+INFO     api:api_client.py:103 ⬅️  201 https://aqa-proka4.org/sandbox/api/orders (257 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-13T13:08:57.936790Z', 'id': 77, 'items': [{'created_at': '2026-10-13T13:08:57.707038Z', 'id': 1, 'price': 472.75, 'product_id': 7, 'product_name': 'Product-different', 'quantity': 1, 'total': 472.75}], 'status': 'pending', 'total': 472.75}
+INFO     api:api_client.py:62 ➡️  PUT https://aqa-proka4.org/sandbox/api/products/7
+INFO     api:api_client.py:73    body (json): {'name': 'Updated-fd6d51', 'price': 999.99}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products/7 (162 ms)
+INFO     api:api_client.py:124    response body: {'category': 'Category-cell', 'created_at': '2026-10-13T13:08:57.466642Z', 'description': 'Sing Congress value wish black course Mrs doctor.', 'id': 7, 'image_url': 'https://via.placeholder.com/300', 'name': 'Updated-fd6d51', 'price': 999.99, 'stock': 98, 'updated_at': '2026-10-13T13:08:58.151087Z'}
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/orders/77
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/orders/77 (176 ms)
+INFO     api:api_client.py:124    response body: {'created_at': '2026-10-13T13:08:57.936790Z', 'id': 77, 'items': [{'created_at': '2026-10-13T13:08:57.707038Z', 'id': 1, 'price': 472.75, 'product_id': 7, 'product_name': 'Product-different', 'quantity': 1, 'total': 472.75}], 'status': 'pending', 'total': 472.75}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/products/7
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/products/7 (169 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/products
+INFO     api:api_client.py:69    params: {'category': 'Category-cell'}
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/products?category=Category-cell (162 ms)
+INFO     api:api_client.py:124    response body: {'data': [], 'meta': {'page': 1, 'per_page': 20, 'total': 0, 'total_pages': 0}}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/categories/5
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/categories/5 (180 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (152 ms)
+INFO     api:api_client.py:113    response body: <empty>
