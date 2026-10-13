@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-owner",
+  "description": "Beyond everything top trial according get outside.",
+  "category": "Category-real",
+  "price": 394.93,
+  "stock": 91,
+  "image_url": "https://via.placeholder.com/300"
+}

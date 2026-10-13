@@ -1,0 +1,12 @@
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (332 ms)
+INFO     api:api_client.py:113    response body: <empty>
+INFO     api:api_client.py:62 ➡️  GET https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  200 https://aqa-proka4.org/sandbox/api/cart (291 ms)
+INFO     api:api_client.py:124    response body: {'count': 0, 'items': [], 'total': 0}
+INFO     api:api_client.py:62 ➡️  POST https://aqa-proka4.org/sandbox/api/orders
+INFO     api:api_client.py:103 ⬅️  400 https://aqa-proka4.org/sandbox/api/orders (212 ms)
+INFO     api:api_client.py:124    response body: {'error': 'Cart is empty'}
+INFO     api:api_client.py:62 ➡️  DELETE https://aqa-proka4.org/sandbox/api/cart
+INFO     api:api_client.py:103 ⬅️  204 https://aqa-proka4.org/sandbox/api/cart (213 ms)
+INFO     api:api_client.py:113    response body: <empty>

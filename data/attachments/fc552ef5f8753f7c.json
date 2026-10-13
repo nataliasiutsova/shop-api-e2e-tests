@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-10-13T13:00:35.324652Z",
+  "id": 73,
+  "items": [
+    {
+      "created_at": "2026-10-13T13:00:34.982780Z",
+      "id": 1,
+      "price": 375.34,
+      "product_id": 7,
+      "product_name": "Product-include",
+      "quantity": 2,
+      "total": 750.68
+    }
+  ],
+  "status": "cancelled",
+  "total": 750.68,
+  "updated_at": "2026-10-13T13:00:35.705368Z"
+}

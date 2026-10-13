@@ -1,0 +1,1 @@
+GET https://aqa-proka4.org/sandbox/api/products/7

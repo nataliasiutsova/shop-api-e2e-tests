@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-indicate",
+  "description": "Accept people ten paper peace leave win.",
+  "category": "Category-year",
+  "price": 465.98,
+  "stock": 13,
+  "image_url": "https://via.placeholder.com/300"
+}

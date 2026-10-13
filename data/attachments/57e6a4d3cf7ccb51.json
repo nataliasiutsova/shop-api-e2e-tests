@@ -1,0 +1,15 @@
+{
+  "count": 1,
+  "items": [
+    {
+      "created_at": "2026-10-13T13:00:31.042960Z",
+      "id": 1,
+      "price": 465.98,
+      "product_id": 7,
+      "product_name": "Product-indicate",
+      "quantity": 2,
+      "total": 931.96
+    }
+  ],
+  "total": 931.96
+}

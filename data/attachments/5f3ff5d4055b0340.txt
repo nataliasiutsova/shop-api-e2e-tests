@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-policy",
+  "description": "Blood so part end.",
+  "category": "Category-say",
+  "price": 940.47,
+  "stock": 34,
+  "image_url": "https://via.placeholder.com/300"
+}

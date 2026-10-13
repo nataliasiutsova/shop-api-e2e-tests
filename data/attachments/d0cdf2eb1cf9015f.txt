@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-include",
+  "description": "Short action often.",
+  "category": "Category-several",
+  "price": 375.34,
+  "stock": 73,
+  "image_url": "https://via.placeholder.com/300"
+}

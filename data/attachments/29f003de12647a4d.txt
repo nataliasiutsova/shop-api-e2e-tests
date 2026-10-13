@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-ever",
+  "description": "Serve news even car watch message art.",
+  "category": "Category-economic",
+  "price": 392.98,
+  "stock": 51,
+  "image_url": "https://via.placeholder.com/300"
+}

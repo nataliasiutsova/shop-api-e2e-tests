@@ -1,0 +1,11 @@
+POST https://aqa-proka4.org/sandbox/api/products
+
+Body (json):
+{
+  "name": "Product-memory",
+  "description": "Rise skin stage Republican present.",
+  "category": "Category-left",
+  "price": 447.56,
+  "stock": 63,
+  "image_url": "https://via.placeholder.com/300"
+}
