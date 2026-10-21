@@ -17,8 +17,13 @@ on:
           - known_bug
 
 permissions:
-  contents: write
+  contents: read
   pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   tests:
@@ -60,6 +65,7 @@ jobs:
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
       # ---------- Cache Allure history ----------
+
       - name: Cache Allure history
         uses: actions/cache@v4
         with:
@@ -70,6 +76,14 @@ jobs:
             allure-history-${{ github.ref_name }}-
             allure-history-
 
+      # ---------- Prepare results directory ----------
+  
+      - name: Prepare results directory
+        if: always()
+        run: |
+          rm -rf allure-results
+          mkdir -p allure-results
+
       # ---------- Run tests in Docker ----------
       - name: Run tests in Docker
         env:
@@ -77,8 +91,7 @@ jobs:
           API_TOKEN: ${{ secrets.API_TOKEN }}
           MARKER: ${{ inputs.marker || 'smoke' }}
         run: |
-          echo "▶ Marker: $MARKER"
-          mkdir -p allure-results
+          echo "▶ Running tests with marker: $MARKER"
           docker run --rm \
             --user "$(id -u):$(id -g)" \
             -e BASE_URL="$BASE_URL" \
@@ -102,13 +115,7 @@ jobs:
         if: always()
         run: |
           allure generate allure-results -o allure-report --clean
-
-      # ---------- Copy history back ----------
-      - name: Copy history back for next run
-        if: always()
-        run: |
-          mkdir -p allure-results/history
-          cp -r allure-report/history/* allure-results/history/ || true
+          touch allure-report/.nojekyll
 
       # ---------- Upload Allure report ----------
       - name: Upload Allure report (artifact)
@@ -125,34 +132,25 @@ jobs:
         env:
           MARKER: ${{ inputs.marker || 'smoke' }}
         run: |
-          if [ "$MARKER" = "smoke" ]; then
-            URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-          else
-            URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/$MARKER/"
-          fi
+          URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
           echo "## 🔗 Allure Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Marker:** \`$MARKER\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Executed Marker:** \`$MARKER\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Report:** [$URL]($URL)" >> $GITHUB_STEP_SUMMARY
 
-      # ---------- Deploy smoke to Pages root ----------
-      - name: Deploy smoke to Pages root
-        if: always() && github.ref == 'refs/heads/main' && (inputs.marker || 'smoke') == 'smoke'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-report
-          keep_files: true
+      # ---------- Deploy to GitHub Pages ----------
+      - name: Setup Pages
+        if: always() && github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
 
-      # ---------- Deploy marker to Pages subfolder ----------
-      - name: Deploy marker to Pages subfolder
-        if: always() && github.ref == 'refs/heads/main' && (inputs.marker || 'smoke') != 'smoke'
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages Artifact
+        if: always() && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-report
-          destination_dir: ${{ inputs.marker || 'smoke' }}
-          keep_files: true
+          path: 'allure-report'
+
+      - name: Deploy to GitHub Pages
+        if: always() && github.ref == 'refs/heads/main'
+        id: deployment
+        uses: actions/deploy-pages@v4
