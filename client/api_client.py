@@ -4,6 +4,7 @@ import os
 
 import allure
 import requests
+
 from utils.logging_utils import mask, truncate
 
 logger = logging.getLogger("api")
@@ -20,6 +21,7 @@ class RequestClient:
             )
         self.base_url = base_url.rstrip("/")
         self.session = requests.Session()
+        self.session.verify = False
         self.timeout = timeout
         if token:
             self.session.headers["Authorization"] = f"Bearer {token}"
