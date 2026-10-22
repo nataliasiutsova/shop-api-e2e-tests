@@ -7,7 +7,7 @@ pytestmark = [
 ]
 
 
-@pytest.mark.regression
+@pytest.mark.smoke
 @allure.title("DELETE /cart — clears the cart and returns 204 No Content")
 @allure.description("Sends DELETE /cart with items in the cart and verifies the response is 204")
 @allure.severity(allure.severity_level.CRITICAL)

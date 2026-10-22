@@ -22,6 +22,7 @@ mkdir -p "$RESULTS"
 find "$RESULTS" -mindepth 1 -delete
 [ -d "$REPORT/history" ] && cp -r "$REPORT/history" "$RESULTS/history"
 
+set +e
 docker run --rm \
     --user "$(id -u):$(id -g)" \
     --env-file .env \
@@ -29,5 +30,11 @@ docker run --rm \
     "$IMAGE" \
     pytest "${PYTEST_ARGS[@]}" --alluredir=allure-results -v
 
+PYTEST_EXIT_CODE=$?
+
+set -e
+
 allure generate "$RESULTS" -o "$REPORT" --clean
 allure open "$REPORT"
+
+exit $PYTEST_EXIT_CODE

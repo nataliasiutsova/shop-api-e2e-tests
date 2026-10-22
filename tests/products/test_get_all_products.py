@@ -22,7 +22,7 @@ def test_get_products_returns_200(product_service):
         assert response.status_code == 200, f"Expected 200, got {response.status_code}. "
 
 
-@pytest.mark.smoke
+@pytest.mark.regression
 @allure.title("GET /products — 'data' field is a list")
 @allure.description("Verifies that the response contains a 'data' field and it is a list. ")
 @allure.severity(allure.severity_level.BLOCKER)

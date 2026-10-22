@@ -10,7 +10,7 @@ pytestmark = [
 ]
 
 
-@pytest.mark.regression
+@pytest.mark.smoke
 @allure.title("PUT /api/orders/{id}/cancel — cancels a pending orders and returns 200 OK")
 @allure.description(
     "Cancels a pending orders and verifies the response matches "

@@ -23,7 +23,7 @@ def test_get_product_returns_200(product_service, created_product):
         assert response.status_code == 200, f"Expected 200 for product id={product_id}, got {response.status_code}."
 
 
-@pytest.mark.smoke
+@pytest.mark.regression
 @allure.title("GET /products/{id} — returns object (dict)")
 @allure.description("Verifies that GET /products/{id} returns a JSON object (dict), not a list. ")
 @allure.severity(allure.severity_level.CRITICAL)

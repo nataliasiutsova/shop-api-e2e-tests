@@ -10,7 +10,7 @@ pytestmark = [
 ]
 
 
-@pytest.mark.regression
+@pytest.mark.smoke
 @allure.title("GET /api/orders/{id} — returns 200 OK for an existing orders")
 @allure.description("Fetches an existing orders by id and verifies the response ")
 @allure.severity(allure.severity_level.CRITICAL)

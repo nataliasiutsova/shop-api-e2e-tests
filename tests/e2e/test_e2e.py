@@ -9,7 +9,7 @@ pytestmark = [
 ]
 
 
-@pytest.mark.smoke
+@pytest.mark.e2e
 @allure.title("E2E — create product, add to cart, place orders")
 @allure.description(
     "Full checkout flow across three services:\n"
@@ -60,7 +60,7 @@ def test_checkout_flow(cart_service, order_service, empty_cart, created_product)
         )
 
 
-@pytest.mark.regression
+@pytest.mark.e2e
 @allure.title("E2E — cart is cleared after placing an orders")
 @allure.description(
     "Verifies that after a successful POST /orders, the cart becomes empty."
@@ -96,7 +96,7 @@ def test_cart_is_cleared_after_checkout(
         assert cart["items"] == [], f"Expected empty items, got {cart['items']}"
 
 
-@pytest.mark.regression
+@pytest.mark.e2e
 @allure.title("E2E — orders keeps a snapshot of the product data")
 @allure.description(
     "Places an orders, then updates the product price and name.\n"
@@ -158,7 +158,7 @@ def test_order_keeps_product_snapshot(
         )
 
 
-@pytest.mark.smoke
+@pytest.mark.e2e
 @allure.title("E2E — placing an orders with an empty cart returns 400")
 @allure.description(
     "Verifies that POST /orders fails with 400 when the cart is empty."
@@ -185,7 +185,7 @@ def test_checkout_empty_cart_400(order_service, empty_cart):
         )
 
 
-@pytest.mark.regression
+@pytest.mark.e2e
 @allure.title("E2E — cannot add more than available stock to the cart")
 @allure.description(
     "Verifies that adding a quantity greater than product stock fails with 400."
@@ -225,7 +225,7 @@ def test_cannot_exceed_stock(cart_service, empty_cart, created_product):
         )
 
 
-@pytest.mark.regression
+@pytest.mark.e2e
 @allure.title("E2E — orders with multiple different products")
 @allure.description(
     "Adds two different products to the cart, places an orders, "
@@ -274,7 +274,7 @@ def test_multi_item_order(
         order_service.cancel_order(order_id, allow_error=True)
 
 
-@pytest.mark.smoke
+@pytest.mark.e2e
 @allure.title("E2E — cancel an orders and verify it stays cancelled")
 @allure.description(
     "Places an orders, cancels it via PUT /orders/{id}/cancel, "
@@ -322,7 +322,7 @@ def test_cancel_order_flow(cart_service, order_service, empty_cart, created_prod
         )
 
 
-@pytest.mark.regression
+@pytest.mark.e2e
 @allure.title("E2E — cancelling an already cancelled orders returns 400")
 @allure.description(
     "Cancels an orders, then attempts to cancel it again and expects 400."
@@ -354,7 +354,7 @@ def test_cancel_order_twice(cart_service, order_service, empty_cart, created_pro
         )
 
 
-@pytest.mark.regression
+@pytest.mark.e2e
 @allure.title("E2E — cancelling an orders does not return items to the cart")
 @allure.description(
     "Places an orders, cancels it, and verifies the cart remains empty."
